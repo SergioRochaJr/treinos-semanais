@@ -1,0 +1,31 @@
+[project]
+name = "treinos-semanais"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "SergioRochaJr",email = "sergiorajr1994@gmal.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.2,<10.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "snakeviz (>=2.2.2,<3.0.0)",
+    "typing-extensions (>=4.15.0,<5.0.0)",
+    "mypy (>=1.19.1,<2.0.0)",
+    "pylint (>=4.0.5,<5.0.0)",
+    "complexipy (>=5.2.0,<6.0.0)",
+    "radon (==5.1)",
+    "ruff (>=0.15.4,<0.16.0)",
+    "pytest-icdiff (>=0.9,<0.10)"
+]
