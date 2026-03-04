@@ -40,4 +40,5 @@
   "mbake.showDiff": true,
   "makefile.configureOnOpen": false,
   "python-envs.defaultEnvManager": "ms-python.python:poetry",
+  "mypy.dmypyExecutable":".venv/bin/dmypy"
 }
