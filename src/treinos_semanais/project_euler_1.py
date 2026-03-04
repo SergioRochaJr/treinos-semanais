@@ -5,7 +5,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
 
-def exe1(limit: int) -> int:
+def exe1(limit: int):
     """
     Calculates the sum of all multiples of 3 or 5 below the given limit.
 
