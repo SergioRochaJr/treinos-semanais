@@ -6,6 +6,15 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 
 def ex3(fibonacci_limit: int) -> int:
+    """
+    Calculates the sum of even-valued terms in the Fibonacci sequence up to the given limit.
+
+    Args:
+        fibonacci_limit (int): The upper limit for Fibonacci numbers to consider.
+
+    Returns:
+        int: The sum of all even Fibonacci numbers less than or equal to fibonacci_limit.
+    """
     even_numbers: list[int] = []
     a, b = 0, 1
     while a <= fibonacci_limit:
