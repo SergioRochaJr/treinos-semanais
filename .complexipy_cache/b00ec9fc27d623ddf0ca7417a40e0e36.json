@@ -1,0 +1,37 @@
+{
+  "functions": [
+    {
+      "complexity": 0,
+      "file_name": "project_euler_0.py",
+      "function_name": "ex0",
+      "path": "./src/training_exercises/project_euler_0.py"
+    },
+    {
+      "complexity": 0,
+      "file_name": "project_euler_1.py",
+      "function_name": "exe1",
+      "path": "./src/training_exercises/project_euler_1.py"
+    },
+    {
+      "complexity": 0,
+      "file_name": "test_project_euler_0.py",
+      "function_name": "test_wanted",
+      "path": "./tests/test_project_euler_0.py"
+    },
+    {
+      "complexity": 0,
+      "file_name": "test_project_euler_1.py",
+      "function_name": "test_example",
+      "path": "./tests/test_project_euler_1.py"
+    },
+    {
+      "complexity": 0,
+      "file_name": "test_project_euler_1.py",
+      "function_name": "test_wanted",
+      "path": "./tests/test_project_euler_1.py"
+    }
+  ],
+  "targets": [
+    "/home/sergio/\u00c1rea de trabalho/Projetos/treinos-semanais"
+  ]
+}

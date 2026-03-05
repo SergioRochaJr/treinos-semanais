@@ -31,7 +31,7 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-addopts = ["--import-mode=importlib", "-ra", "-q", "-p", "profiling"]
+addopts = ["--import-mode=importlib", "-ra", "-q"]
 pythonpath = "./src"
 testpaths = ["tests"]
 
