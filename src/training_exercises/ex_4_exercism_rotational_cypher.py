@@ -23,10 +23,37 @@ ROT13 Gur dhvpx oebja sbk whzcf bire gur ynml qbt. gives The quick brown fox jum
 
 
 class RotationalCipher:
+    """A simple implementation of a rotational (Caesar) cipher.
+
+    Attributes:
+        key (int): The shift value used for encoding and decoding operations. It
+            is always normalized to be within 0-25.
+    """
+
     def __init__(self, key: int) -> None:
+        """Initialize the cipher with a given key.
+
+        Args:
+            key (int): The rotation amount; can be any integer, positive or
+                negative. It will be reduced modulo 26 to fit the alphabet.
+        """
         self.key = key % 26
 
     def encode(self, key: int, message: str) -> str:
+        """Return the input text shifted by ``key`` places in the alphabet.
+
+        Non-alphabetic characters are preserved unchanged, and uppercase
+        characters remain uppercase (same for lowercase).
+
+        Args:
+            key (int): rotation amount to apply; positive for forward shifts and
+                negative for backward shifts. It is not normalized inside this
+                method to allow callers to reuse the class key if desired.
+            message (str): the plaintext to be encoded.
+
+        Returns:
+            str: the encoded ciphertext.
+        """
         encoded_message: list[str] = []
         for char in message:
             if char.isalpha():
@@ -38,14 +65,30 @@ class RotationalCipher:
         return "".join(encoded_message)
 
     def decode(self, key: int, message: str) -> str:
+        """Decode a message previously encoded with the provided key.
+
+        This simply calls :meth:`encode` with the negated key.
+
+        Args:
+            key (int): the rotation that was originally used to encode the
+                message.
+            message (str): the ciphertext to decode.
+
+        Returns:
+            str: the decoded plaintext.
+        """
         return self.encode(-key, message)
 
     def force_decode(self, message: str) -> list[str]:
+        """Attempt to decode ``message`` using all possible keys.
+
+        This is useful for brute-forcing a string when the key is unknown. It
+        returns a list of all 26 candidate decodings, corresponding to keys 0–25.
+
+        Args:
+            message (str): the ciphertext for which to generate candidates.
+
+        Returns:
+            list[str]: all possible decodings.
+        """
         return [self.decode(key, message) for key in range(26)]
-
-
-print(RotationalCipher(13).encode(13, "The quick brown fox jumps over the lazy dog."))
-
-print(RotationalCipher(13).decode(13, "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."))
-
-print(RotationalCipher(13).force_decode("Gur dhvpx oebja sbk whzcf bire gur ynml qbt."))
