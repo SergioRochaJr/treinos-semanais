@@ -44,3 +44,9 @@ def test_eq_different_type() -> None:
     assert ComplexNumber(1, 2) != 5
     assert ComplexNumber(1, 2) != "1, 2"
     assert ComplexNumber(1, 2) != object()
+
+
+def test_repr() -> None:
+    assert repr(ComplexNumber(1, 2)) == "1, 2"
+    assert repr(ComplexNumber(-3.5, 4.0)) == "-3.5, 4.0"
+    assert repr(ComplexNumber(0, 0)) == "0, 0"

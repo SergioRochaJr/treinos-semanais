@@ -41,7 +41,6 @@ def test_negative_exponential() -> None:
 
 
 def test_floating_point_exponentiation() -> None:
-    # Usamos math.isclose para comparar floats e evitar bugs de arredondamento
     assert math.isclose(
         RationalNumber(4, 9).floating_point_exponentiation(0.5), 0.6666666666666666
     )
@@ -55,3 +54,33 @@ def test_eq_different_type() -> None:
     assert RationalNumber(1, 2) != 5
     assert RationalNumber(1, 2) != "1/2"
     assert RationalNumber(1, 2) != object()
+
+
+def test_negative_exponential_zero_raises_error() -> None:
+    try:
+        RationalNumber(0, 1).negative_exponential(-3)
+        raise AssertionError("O código não levantou o ValueError esperado.")
+    except ValueError as e:
+        assert str(e) == "Cannot raise zero to a negative power."
+
+
+def test_divide_by_zero_raises_error() -> None:
+    try:
+        RationalNumber(1, 2).divide(RationalNumber(0, 5))
+        raise AssertionError("O código não levantou o ValueError esperado.")
+    except ValueError as e:
+        assert str(e) == "Cannot divide by zero."
+
+
+def test_str_representation() -> None:
+    assert str(RationalNumber(1, 2)) == "1/2"
+    assert str(RationalNumber(-3, 4)) == "-3/4"
+    assert str(RationalNumber(0, 5)) == "0/1"
+
+
+def test_zero_denominator_raises_error() -> None:
+    try:
+        RationalNumber(1, 0)
+        raise AssertionError("O código não levantou o ValueError esperado.")
+    except ValueError as e:
+        assert str(e) == "Denominator cannot be zero."
