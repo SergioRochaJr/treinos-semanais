@@ -209,6 +209,3 @@ class ComplexNumber:
             ComplexNumber: e raised to the power of this complex number.
         """
         return ComplexNumber(e**self.a * cos(self.b), e**self.a * sin(self.b))
-
-
-print(ComplexNumber(1, 2).conjugate())
