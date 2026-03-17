@@ -3,8 +3,8 @@
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
 
-import math
 from functools import reduce
+from math import gcd
 
 
 def smallest_divisible(limit: int) -> int:
@@ -37,4 +37,4 @@ def smallest_divisible_math(limit: int) -> int:
     Returns:
         The smallest positive number evenly divisible by all numbers from 1 to limit.
     """
-    return reduce(lambda a, b: (a * b) // math.gcd(a, b), range(1, limit + 1))
+    return reduce(lambda a, b: (a * b) // gcd(a, b), range(1, limit + 1))

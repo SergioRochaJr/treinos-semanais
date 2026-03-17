@@ -4,7 +4,7 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, we can see that the 6th 
 What is the 10001st prime number?
 """
 
-import math
+from math import log
 
 
 def ex13(n: int) -> int:
@@ -23,7 +23,7 @@ def ex13(n: int) -> int:
     """
     if n < 6:
         return [2, 3, 5, 7, 11][n - 1]
-    limit = int(n * (math.log(n) + math.log(math.log(n))))
+    limit = int(n * (log(n) + log(log(n))))
     sieve = [True] * (limit + 1)
     sieve[0] = sieve[1] = False
     for p in range(2, int(limit**0.5) + 1):

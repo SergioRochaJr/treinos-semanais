@@ -64,8 +64,7 @@ exponentiation of e (the base of the natural logarithm) to a complex number
 
 """
 
-import math
-from math import cos, e, sin
+from math import cos, e, isclose, sin
 
 
 class ComplexNumber:
@@ -109,7 +108,7 @@ class ComplexNumber:
         """
         if not isinstance(other, ComplexNumber):
             return False
-        return math.isclose(self.a, other.a, abs_tol=1e-9) and math.isclose(
+        return isclose(self.a, other.a, abs_tol=1e-9) and isclose(
             self.b, other.b, abs_tol=1e-9
         )
 

@@ -1,4 +1,4 @@
-import re
+from re import match
 
 """
 Your task is to translate text from English to Pig Latin. The translation is defined using four rules, which look at the pattern of vowels and consonants at the beginning of a word. These rules look at each word's use of vowels and consonants:
@@ -53,21 +53,25 @@ def pig_latim_encoder(word: str) -> str:
     """
     word = word.lower()
 
-    if re.match(r"^([aeiou]|xr|yt)", word):
+    if match(r"^([aeiou]|xr|yt)", word):
+
         return word + "ay"
 
-    if match := re.match(r"^([^aeiou]*qu)", word):
-        prefix = match.group(1)
+    if matched := match(r"^([^aeiou]*qu)", word):
+        prefix = matched.group(1)
+
         return word[len(prefix) :] + prefix + "ay"
 
-    if match := re.match(r"^([^aeiou]+)(y.*)", word):
-        consonants = match.group(1)
-        rest = match.group(2)
+    if matched := match(r"^([^aeiou]+)(y.*)", word):
+        consonants = matched.group(1)
+        rest = matched.group(2)
+
         return rest + consonants + "ay"
 
-    if match := re.match(r"^([^aeiou]+)(.*)", word):
-        consonants = match.group(1)
-        rest = match.group(2)
+    if matched := match(r"^([^aeiou]+)(.*)", word):
+        consonants = matched.group(1)
+        rest = matched.group(2)
+
         return rest + consonants + "ay"
 
     return word
