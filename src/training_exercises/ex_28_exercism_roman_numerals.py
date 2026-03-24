@@ -43,8 +43,6 @@ For this exercise, we are only concerned about traditional Roman numerals, in wh
 
 
 def roman_numeral(number: int) -> str:
-    if number > 3999 or number <= 0:
-        raise ValueError("Number should be higher than 0 and lower than 4000")
     """
     Convert an Arabic numeral to a Roman numeral.
 
@@ -61,8 +59,10 @@ def roman_numeral(number: int) -> str:
     Raises:
         ValueError: If the number is not between 1 and 3999.
     """
+    if number > 3_999 or number <= 0:
+        raise ValueError("Number should be higher than 0 and lower than 4000")
     roman_map = {
-        1000: "M",
+        1_000: "M",
         900: "CM",
         500: "D",
         400: "CD",
@@ -77,8 +77,10 @@ def roman_numeral(number: int) -> str:
         1: "I",
     }
     result = ""
+
     for value, numeral in roman_map.items():
         while number >= value:
             result += numeral
             number -= value
+
     return result

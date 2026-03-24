@@ -1,43 +1,43 @@
-import math
+from math import isclose
 
-from training_exercises.ex_8_exercism_space_age import SpaceAge
+from training_exercises.ex_08_exercism_space_age import SpaceAge
 
 
 def test_on_earth() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_earth(), 31.69)
+    assert isclose(age.on_earth(), 31.69)
 
 
 def test_on_mercury() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_mercury(), 131.57)
+    assert isclose(age.on_mercury(), 131.57)
 
 
 def test_on_venus() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_venus(), 51.51)
+    assert isclose(age.on_venus(), 51.51)
 
 
 def test_on_mars() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_mars(), 16.85)
+    assert isclose(age.on_mars(), 16.85)
 
 
 def test_on_jupiter() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_jupiter(), 2.67)
+    assert isclose(age.on_jupiter(), 2.67)
 
 
 def test_on_saturn() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_saturn(), 1.08)
+    assert isclose(age.on_saturn(), 1.08)
 
 
 def test_on_uranus() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_uranus(), 0.38)
+    assert isclose(age.on_uranus(), 0.38)
 
 
 def test_on_neptune() -> None:
     age = SpaceAge(1_000_000_000)
-    assert math.isclose(age.on_neptune(), 0.19)
+    assert isclose(age.on_neptune(), 0.19)

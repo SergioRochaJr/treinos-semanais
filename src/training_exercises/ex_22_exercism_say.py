@@ -72,9 +72,8 @@ def say(n: int) -> str:
         if chunks[i] != 0:
             chunk_text = process_chunk(chunks[i])
             scale = thousands[i]
-            if scale:
-                final_words.append(f"{chunk_text} {scale}")
-            else:
-                final_words.append(chunk_text)
+            text = f"{chunk_text} {scale}" if scale else chunk_text
+
+            final_words.append(text)
 
     return " ".join(reversed(final_words)).strip()

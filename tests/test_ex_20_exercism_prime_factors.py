@@ -1,10 +1,21 @@
+from pytest import mark
+
 from training_exercises.ex_20_exercism_prime_factors import prime_factors
 
 
-def test_prime_factors() -> None:
-    assert prime_factors(0) == [0]
-    assert prime_factors(1) == []
-    assert prime_factors(2) == [2]
-    assert prime_factors(8) == [2, 2, 2]
-    assert prime_factors(9) == [3, 3]
-    assert prime_factors(12) == [2, 2, 3]
+@mark.parametrize(
+    "number, expected",
+    [
+        (0, [0]),
+        (1, []),
+        (2, [2]),
+        (8, [2, 2, 2]),
+        (9, [3, 3]),
+        (12, [2, 2, 3]),
+    ],
+)
+def test_prime_factors(
+    number: int,
+    expected: list[int],
+) -> None:
+    assert prime_factors(number) == expected

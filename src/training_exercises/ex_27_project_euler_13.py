@@ -119,5 +119,4 @@ def ten_digits(numbers: list[int]) -> str:
                 10 digits, returns the entire sum as a string.
     """
 
-    total = sum(numbers)
-    return str(total)[:10]
+    return str(sum(numbers))[:10]

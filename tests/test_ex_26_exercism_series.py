@@ -1,26 +1,39 @@
-from pytest import raises
+from pytest import mark, raises
 
 from training_exercises.ex_26_exercism_series import slices
 
 
-def test_slices() -> None:
-    assert slices("49142", 3) == ["491", "914", "142"]
-    assert slices("49142", 4) == ["4914", "9142"]
-    assert slices("12345", 5) == ["12345"]
-    expected_result = [
-        "543",
-        "431",
-        "312",
-        "123",
-        "235",
-        "354",
-        "543",
-        "432",
-        "321",
-        "213",
-        "131",
-    ]
-    assert slices("5431235432131", 3) == expected_result
+@mark.parametrize(
+    "series, length, expected",
+    [
+        ("49142", 3, ["491", "914", "142"]),
+        ("49142", 4, ["4914", "9142"]),
+        ("12345", 5, ["12345"]),
+        (
+            "5431235432131",
+            3,
+            [
+                "543",
+                "431",
+                "312",
+                "123",
+                "235",
+                "354",
+                "543",
+                "432",
+                "321",
+                "213",
+                "131",
+            ],
+        ),
+    ],
+)
+def test_slices(
+    series: str,
+    length: int,
+    expected: list[str],
+) -> None:
+    assert slices(series, length) == expected
 
 
 def test_slice_length_cannot_be_zero() -> None:

@@ -409,5 +409,5 @@ def test_adjacent_product() -> None:
             20,
             20,
         )
-        == 70600674
+        == 706_00_674
     )

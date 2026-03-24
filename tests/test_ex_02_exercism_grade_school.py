@@ -1,4 +1,4 @@
-from training_exercises.ex_2_exercism_grade_school import School
+from training_exercises.ex_02_exercism_grade_school import School
 
 
 def test_roster_is_empty_when_no_student_is_added() -> None:

@@ -1,4 +1,4 @@
-from training_exercises.ex_6_exercism_list_ops import (
+from training_exercises.ex_06_exercism_list_ops import (
     append,
     concatenate,
     filter,

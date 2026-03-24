@@ -1,52 +1,145 @@
-import math
+from math import e, isclose, pi
+from typing import Any
+
+from pytest import mark
 
 from training_exercises.ex_17_exercism_complex_numbers import ComplexNumber
 
 
-def test_conjugate() -> None:
-    assert ComplexNumber(1, 2).conjugate() == ComplexNumber(1, -2)
+@mark.parametrize(
+    "c, expected",
+    [
+        (ComplexNumber(1, 2), ComplexNumber(1, -2)),
+    ],
+)
+def test_conjugate(
+    c: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c.conjugate() == expected
 
 
-def test_absolute_value() -> None:
-    assert math.isclose(ComplexNumber(3, 4).absolute_value(), 5.0)
+@mark.parametrize(
+    "c, expected",
+    [
+        (ComplexNumber(3, 4), 5.0),
+    ],
+)
+def test_absolute_value(
+    c: ComplexNumber,
+    expected: float,
+) -> None:
+    assert isclose(c.absolute_value(), expected)
 
 
-def test_addition() -> None:
-    assert ComplexNumber(1, 2).addition(ComplexNumber(3, 4)) == ComplexNumber(4, 6)
+@mark.parametrize(
+    "c1, c2, expected",
+    [
+        (ComplexNumber(1, 2), ComplexNumber(3, 4), ComplexNumber(4, 6)),
+    ],
+)
+def test_addition(
+    c1: ComplexNumber,
+    c2: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c1.addition(c2) == expected
 
 
-def test_subtraction() -> None:
-    assert ComplexNumber(5, 5).subtraction(ComplexNumber(2, 3)) == ComplexNumber(3, 2)
+@mark.parametrize(
+    "c1, c2, expected",
+    [
+        (ComplexNumber(5, 5), ComplexNumber(2, 3), ComplexNumber(3, 2)),
+    ],
+)
+def test_subtraction(
+    c1: ComplexNumber,
+    c2: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c1.subtraction(c2) == expected
 
 
-def test_multiplication() -> None:
-    assert ComplexNumber(1, 2).multiplication(ComplexNumber(3, 4)) == ComplexNumber(
-        -5, 10
-    )
+@mark.parametrize(
+    "c1, c2, expected",
+    [
+        (ComplexNumber(1, 2), ComplexNumber(3, 4), ComplexNumber(-5, 10)),
+    ],
+)
+def test_multiplication(
+    c1: ComplexNumber,
+    c2: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c1.multiplication(c2) == expected
 
 
-def test_reciprocal() -> None:
-    assert ComplexNumber(1, 2).reciprocal() == ComplexNumber(0.2, -0.4)
+@mark.parametrize(
+    "c, expected",
+    [
+        (ComplexNumber(1, 2), ComplexNumber(0.2, -0.4)),
+    ],
+)
+def test_reciprocal(
+    c: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c.reciprocal() == expected
 
 
-def test_division() -> None:
-    assert ComplexNumber(1, 2).division(ComplexNumber(3, 4)) == ComplexNumber(
-        0.44, 0.08
-    )
+@mark.parametrize(
+    "c1, c2, expected",
+    [
+        (ComplexNumber(1, 2), ComplexNumber(3, 4), ComplexNumber(0.44, 0.08)),
+    ],
+)
+def test_division(
+    c1: ComplexNumber,
+    c2: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c1.division(c2) == expected
 
 
-def test_exponential() -> None:
-    assert ComplexNumber(0, math.pi).exponential() == ComplexNumber(-1.0, 0.0)
-    assert ComplexNumber(1, 0).exponential() == ComplexNumber(math.e, 0.0)
+@mark.parametrize(
+    "c, expected",
+    [
+        (ComplexNumber(0, pi), ComplexNumber(-1.0, 0.0)),
+        (ComplexNumber(1, 0), ComplexNumber(e, 0.0)),
+    ],
+)
+def test_exponential(
+    c: ComplexNumber,
+    expected: ComplexNumber,
+) -> None:
+    assert c.exponential() == expected
 
 
-def test_eq_different_type() -> None:
-    assert ComplexNumber(1, 2) != 5
-    assert ComplexNumber(1, 2) != "1, 2"
-    assert ComplexNumber(1, 2) != object()
+@mark.parametrize(
+    "c, other",
+    [
+        (ComplexNumber(1, 2), 5),
+        (ComplexNumber(1, 2), "1, 2"),
+        (ComplexNumber(1, 2), object()),
+    ],
+)
+def test_eq_different_type(
+    c: ComplexNumber,
+    other: Any,
+) -> None:
+    assert c != other
 
 
-def test_repr() -> None:
-    assert repr(ComplexNumber(1, 2)) == "1, 2"
-    assert repr(ComplexNumber(-3.5, 4.0)) == "-3.5, 4.0"
-    assert repr(ComplexNumber(0, 0)) == "0, 0"
+@mark.parametrize(
+    "c, expected",
+    [
+        (ComplexNumber(1, 2), "1, 2"),
+        (ComplexNumber(-3.5, 4.0), "-3.5, 4.0"),
+        (ComplexNumber(0, 0), "0, 0"),
+    ],
+)
+def test_repr(
+    c: ComplexNumber,
+    expected: str,
+) -> None:
+    assert repr(c) == expected

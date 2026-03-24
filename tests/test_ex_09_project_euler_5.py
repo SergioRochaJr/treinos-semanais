@@ -1,4 +1,4 @@
-from training_exercises.ex_9_project_euler_5 import (
+from training_exercises.ex_09_project_euler_5 import (
     smallest_divisible,
     smallest_divisible_math,
 )

@@ -1,4 +1,4 @@
-from training_exercises.ex_4_exercism_rotational_cypher import RotationalCipher
+from training_exercises.ex_04_exercism_rotational_cypher import RotationalCipher
 
 
 def test_encode_rot13() -> None:

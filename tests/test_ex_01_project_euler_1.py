@@ -1,4 +1,4 @@
-from training_exercises.ex_1_project_euler_1 import exe1
+from training_exercises.ex_01_project_euler_1 import exe1
 
 
 def test_example() -> None:
