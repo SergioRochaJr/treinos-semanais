@@ -1,3 +1,5 @@
+"""Domino chain solver using backtracking algorithm."""
+
 from typing import List, Optional, Tuple
 
 Domino = Tuple[int, int]
@@ -5,6 +7,16 @@ Chain = List[Domino]
 
 
 def dominoes(pair: Chain) -> Optional[Chain]:
+    """Find a valid domino chain arrangement if one exists.
+
+    Args:
+        pair (Chain): A list of dominoes to arrange.
+
+    Returns:
+        Optional[Chain]: A valid domino chain where each domino's right value matches
+            the next domino's left value, and the chain forms a loop. Returns None
+            if no valid arrangement exists.
+    """
     if not pair:
         return []
     counts: dict[int, int] = {}
@@ -16,6 +28,15 @@ def dominoes(pair: Chain) -> Optional[Chain]:
             return None
 
     def chain(current_chain: Chain, remaining: Chain) -> Optional[Chain]:
+        """Recursively build a domino chain using backtracking.
+
+        Args:
+            current_chain (Chain): The chain built so far.
+            remaining (Chain): The dominoes not yet used.
+
+        Returns:
+            Optional[Chain]: A valid complete chain if found, None otherwise.
+        """
         if not remaining:
             first_number = current_chain[0][0]
             last_number = current_chain[-1][1]
